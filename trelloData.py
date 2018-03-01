@@ -7,4 +7,8 @@ student1Data = urlopen("https://trello.com/b/uaCT48b5/chronospatial.json").read(
 # Data is in bytes, needs to be decoded so it's JSON serializable.
 student1Decode = student1Data.decode("utf-8")
 
-# Backslashes from the data need to be remove
+# Backslashes from the data need to be removed.
+
+# Creates a new file, and dumps all decoded JSON data into that file.
+with open('student1.json', 'w') as jsonFile:
+    json.dump(student1Decode, jsonFile)
