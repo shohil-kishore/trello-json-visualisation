@@ -1,6 +1,6 @@
 from urllib.request import urlopen
 
-# Defining variables to combine multiple JSON files together.
+# Defining variables to correctly combine multiple JSON files together.
 startingBracket = "["
 comma = ","
 endingBracket = "]"
@@ -14,15 +14,9 @@ endingBracket = str.encode(endingBracket)
 stu1Data = urlopen("https://trello.com/b/uaCT48b5/chronospatial.json").read()
 stu2Data = urlopen("https://trello.com/b/rq2mYJNn/public-trello-boards.json").read()
 
-# Creating a new JSON file and loading student data. Needs to be converted to iterate through an array.
-with open('stu1.json', 'wb') as stu1:
-    stu1.write(startingBracket)
-    stu1.write(stu1Data)
-    stu1.write(comma)
+# Combining Byte arrays.
+combinedData = startingBracket + stu1Data + comma + stu2Data + endingBracket
 
-with open('stu2.json', 'wb') as stu2:
-    stu2.write(stu2Data)
-    stu2.write(endingBracket)
-
-# Combining data into one file. Needs to have opening and ending brackets as well as commas.
-with open('combinedFiles.json') as f:
+# Writing combined Byte array to a file which can be used for analysis.
+with open('combinedData.json', 'wb') as f:
+    f.write(combinedData)
