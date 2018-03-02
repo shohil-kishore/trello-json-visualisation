@@ -5,7 +5,7 @@ startingBracket = "["
 comma = ","
 endingBracket = "]"
 
-# Converting Strings to Bytes.
+# Converting Strings to Bytes due to encoding issues.
 startingBracket = str.encode(startingBracket)
 comma = str.encode(comma)
 endingBracket = str.encode(endingBracket)
