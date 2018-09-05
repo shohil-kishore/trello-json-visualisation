@@ -5,11 +5,11 @@ from urllib.request import urlopen
 # Define Trello URL's based on 'student-urls.txt' file. 
 studentData = []
 try: 
-    with open('student-urls.txt', 'r') as f:
+    with open('urls.txt', 'r') as f:
         studentData = f.readlines()
-        studentData = [line.rstrip('\n') for line in open('student-urls.txt')]
+        studentData = [line.rstrip('\n') for line in open('urls.txt')]
 except:
-    print("Couldn't find 'students-url.txt'. Ensure it's in the same directory.")
+    print("Couldn't find 'url.txt'. Ensure that it's in the same directory.")
     time.sleep(15)
     sys.exit()
 
@@ -29,5 +29,5 @@ while iterator < len(studentData):
     iterator = iterator + 1
 
 # Write combined Byte array to a file.
-with open('combinedData.json', 'wb') as f:
+with open('trello-data.json', 'wb') as f:
     f.write(startingBracket + combinedData + endingBracket)
